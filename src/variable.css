@@ -1,0 +1,16 @@
+@font-face {
+  font-family: barlow_thin;
+  src: url(assets/fonts/Barlow-Thin.ttf) format("truetype");
+}
+@font-face {
+  font-family: barlow_medium;
+  src: url(assets/fonts/Barlow-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: barlow_regular;
+  src: url(assets/fonts/Barlow-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: barlow_light;
+  src: url(assets/fonts/Barlow-Light.ttf) format("truetype");
+}/*# sourceMappingURL=variable.css.map */

@@ -1,0 +1,50 @@
+@font-face {
+  font-family: barlow_thin;
+  src: url(assets/fonts/Barlow-Thin.ttf) format("truetype");
+}
+@font-face {
+  font-family: barlow_medium;
+  src: url(assets/fonts/Barlow-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: barlow_regular;
+  src: url(assets/fonts/Barlow-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: barlow_light;
+  src: url(assets/fonts/Barlow-Light.ttf) format("truetype");
+}
+.side {
+  width: 75vw;
+}
+
+@media (min-width: 576px) {
+  .side {
+    width: 50vw;
+  }
+}
+@media (min-width: 768px) {
+  .side {
+    width: 50vw;
+  }
+}
+@media (min-width: 992px) {
+  .side {
+    width: 20vw;
+  }
+}
+@media (min-width: 1200px) {
+  .side {
+    width: 15vw;
+  }
+}
+@media (min-width: 1400px) {
+  .side {
+    width: 15vw;
+  }
+}
+.top-nav {
+  height: 8dvh;
+  width: 100vw;
+  background-color: #060029;
+}/*# sourceMappingURL=dashboard.component.css.map */

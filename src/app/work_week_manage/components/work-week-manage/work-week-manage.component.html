@@ -1,0 +1,38 @@
+<div class="container p-4">
+    <div>
+        <h3 class="fs-4 mb-4">WORK WEEK MANAGE</h3>
+    </div>
+
+    <div class="main-border row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10 col-12">
+
+            @if(work_week){
+            @for (day_schedule of work_week; track $index) {
+            <div class="mb-3">
+                <label class="form-label d-flex align-items-center">
+                    <span class="day-label">{{day_schedule.day}}</span>
+
+                    <div class="form-switch">  
+                        <input id="{{day_schedule.day}}-active" value="{{day_schedule.is_active}}" class="form-check-input"  [disabled]="!isEditable" type="checkbox">
+                    </div>
+                    
+                    <input id="{{day_schedule.day}}-start" type="time" value="{{day_schedule.open_time}}" [disabled]="!isEditable" class="form-control time-input ms-2"
+                        placeholder="Open Time">
+                    <input id="{{day_schedule.day}}-end" type="time" value="{{day_schedule.close_time}}"  [disabled]="!isEditable" class="form-control time-input ms-2"
+                        placeholder="Close Time">
+                </label>
+            </div>
+            }
+            }
+            <div class="d-flex justify-content-center mt-4 mb-3">
+                <button *ngIf="isEditable" type="button" class="cutom-btn me-3" (click)="updateData()">
+                    Update
+                </button>
+
+                <button type="button" class="cutom-btn" (click)="toggleEdit()">
+                    {{ isEditable ? 'Reset' : 'Edit' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

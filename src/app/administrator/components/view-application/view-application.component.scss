@@ -1,0 +1,60 @@
+body {
+    background-color: #f8f9fa;
+}
+.container {
+    margin-top: 50px;
+}
+.left-section {
+    text-align: left;
+}
+.image-placeholder {
+    background-color: #d3d3d3;
+    height: 150px;
+    width: 100%;
+    border-radius: 5px;
+}
+.grid-placeholder {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    height: 150px;
+}
+.grid-placeholder div {
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+.btn-container {
+    display: flex;
+    justify-content: end;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.accept-btn {
+    width: 150px;
+    margin: 0 15px;
+    background-color: #09439A;
+    color: white;
+    border: 1px solid #09439A;
+    border-radius: 20px;
+    padding: 8px;
+}
+.reject-btn {
+    width: 150px;
+    margin: 0 15px;
+    background-color: white;
+    color:  #09439A;
+    border: 1px solid #09439A;
+    border-radius: 20px;
+    padding: 8px;
+}
+.main-border{
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.25);
+
+}
+.modal.show {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5); /* Add a background dim effect */
+  }

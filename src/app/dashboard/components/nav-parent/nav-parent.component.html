@@ -1,0 +1,36 @@
+<div class="row m-0 p-0 text-center">
+  <div class="pro_wrapper col-12 mx-auto">
+    <img class="w-100" src="../../../../assets/images/propic.png" alt="">
+  </div>
+
+  <h3 class="fs-6 mt-4">{{loged_user?.user?.name}}</h3>
+</div>
+
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree mt-3">
+  <ng-container *matTreeNodeDef="let node">
+
+    <!-- @if(node.route || node.single){ -->
+
+  <mat-tree-node   matTreeNodeToggle class="mt-2 child clickable"  [ngClass]="treeControl.isExpanded(node)?'child_active':''" [ngClass]="(!node.route )?'d-none':''"
+   (click)="treeControl.isExpanded(node)?nodeExpand(node):nodeCollapse(node)">
+    <p class="my-auto px15_text px-2">{{node.name}}</p>
+  </mat-tree-node>
+<!-- } -->
+  </ng-container>
+  <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+    <div class="mat-tree-node d-flex w-100 parent mt-2 clickable" style="justify-content: space-between;" (click)="treeControl.isExpanded(node)?nodeExpand(node):nodeCollapse(node)"
+      [ngClass]="treeControl.isExpanded(node)?'parent_active':''" mat-icon-button matTreeNodeToggle
+      [attr.aria-label]="'Toggle ' + node.name">
+      <div class="d-flex">
+        <mat-icon  class="mat-icon-rtl-mirror">{{node.icon}}</mat-icon>
+        <p class="m-auto px15_text px-2">{{node.name}}</p>
+      </div>
+      <mat-icon *ngIf="node.children.length!=1" class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </div>
+    <div [class.example-tree-invisible]="!treeControl.isExpanded(node)" role="group" *ngIf="!getParent(node)" >
+      <ng-container matTreeNodeOutlet></ng-container>
+    </div>
+  </mat-nested-tree-node>
+</mat-tree>

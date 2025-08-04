@@ -1,0 +1,70 @@
+<section>
+  <app-search-bar (search)="searchText($event)"></app-search-bar>
+
+  <div class="d-flex mt-5" style="justify-content: space-between;align-content: end;">
+    <div class="col">
+      <h2 class="def_text_color sub-heading"><b>Events</b></h2>
+      <p class="light_text_color px15_text">All of the Events are shown below.</p>
+    </div>
+    <div class="col d-flex" style="align-content: end;">
+
+      <p class="light_text_color px15_text my-auto">Results per page :</p>
+      <select class="select light_text_color px15_text my-auto clickable" (change)="changeTake($event)" [(value)]="take"
+        name="cars" id="cars">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+      </select>
+      <p class="light_text_color px15_text my-auto mx-3">{{(take*page)+1}} -
+        {{(take*(page+1)>total_count)?total_count:(take*(page+1))}} of {{total_count}}</p>
+      <div class="my-auto clickable" [ngClass]="(0>=(take*page))?'light_text_color':''" style="height: 24px;"
+        (click)="pageChange(-1)"><mat-icon> chevron_left</mat-icon></div>
+      <div class="my-auto clickable" [ngClass]="((take*(page+1)>=total_count))?'light_text_color':''"
+        style="height: 24px;" (click)="pageChange(+1)"><mat-icon> chevron_right</mat-icon></div>
+
+    </div>
+
+    <div class="col d-flex my-auto flex-row-reverse">
+      <button (click)="addEvents()" class="btn parent_active px-5 py-3"> Add Events</button>
+    </div>
+
+  </div>
+  <div class="card p-3 my-3">
+    <h3 class="sub-heading light_text_color">Date Rang :</h3>
+    <form [formGroup]="range">
+      <div class="row px-4 mt-3" style="align-content: end;">
+
+        <div class="col-5">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Select a start date</mat-label>
+            <input matInput [matDatepicker]="picker1" (dateChange)="dateChange()" formControlName="date_from"
+              (click)="picker1.open()">
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="col-5">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Select a end date</mat-label>
+            <input matInput [matDatepicker]="picker2" (dateChange)="dateChange()" formControlName="date_to"
+              (click)="picker2.open()">
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 color="primary"></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+      </div>
+    </form>
+
+
+
+  </div>
+
+  <div class="row px-3 mb-4">
+    @for (data of events; track data) {
+    <app-event-item [events]="data" (update)="getAllEvents()"></app-event-item>
+    }
+  </div>
+
+</section>

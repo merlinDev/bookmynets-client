@@ -1,0 +1,77 @@
+@font-face {
+    font-family: barlow_thin;
+    src: url(assets/fonts/Barlow-Thin.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: barlow_medium;
+    src: url(assets/fonts/Barlow-Medium.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: barlow_regular;
+    src: url(assets/fonts/Barlow-Regular.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: barlow_light;
+    src: url(assets/fonts/Barlow-Light.ttf) format("truetype")
+}
+
+body {
+    background: #efefef
+}
+
+a {
+    text-decoration: none
+}
+
+.def_text_color {
+    color: #363636
+}
+
+.light_text_color {
+    color: #a0a0a0
+}
+
+.sub-heading {
+    font-family: barlow_medium;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: .25px
+}
+
+.paragraph-text {
+    font-family: barlow_regular;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal
+}
+
+.input {
+    border-radius: 10px;
+    border: 1px solid #b8b8b8;
+    width: 100%;
+    background: #fff;
+    padding: 2%
+}
+
+.error {
+    color: red
+}
+
+.button_submit {
+    border-radius: 30px;
+    background-color: #041230 !important;
+    color: #fff !important;
+    padding: 3%;
+    text-transform: uppercase;
+    font-family: barlow_regular;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal
+}

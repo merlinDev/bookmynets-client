@@ -1,0 +1,218 @@
+<div class="section" style="font-family: 'Poppins', sans-serif;">
+    <div class="container">
+        <div class="mb-2">
+            <h1 class="fs-3 fw-bold">Settings</h1>
+        </div>
+
+        <div class="row  d-flex mb-3 border border-light main-border rounded shadow-sm p-3">
+            <div class="mb-2">
+                <h6>Basic Settings</h6>
+            </div>
+
+
+            <div class="col-6 col-md-6">
+                <div>
+                    <input type="text" [disabled]="!isEditable" class="form-control mb-2" placeholder="Complex Name *">
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col col-md-6 mb-2">
+                        <input type="text" [disabled]="!isEditable" class="form-control" placeholder="Mobile No">
+                    </div>
+                    <div class="col col-md-6 mb-2">
+                        <input type="email" [disabled]="!isEditable" class="form-control" placeholder="Email">
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-6 col-md-6 mb-2">
+                        <input type="text" [disabled]="!isEditable" class="form-control" placeholder="Address" />
+                    </div>
+                    <div class="col-6 col-md-6 mb-2">
+                        <select class="form-select" [disabled]="!isEditable">
+                            <option value="colombo">Colombo</option>
+                            <option value="gampaha">Gampaha</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <h6>Image Of Business Registration</h6>
+                    <div class="col-1 p-0 image_preview">
+                        <label for="bussines_img" class="text-secondary fs-32">Upload</label>
+                        <input (change)="onImageInputChange($event)" [disabled]="!isEditable" id="bussines_img"
+                            type="file" class="form-control d-none" name="img" accept="image/*">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-6 col-md-6"> -->
+            <div class="col-lg col-md-12 text-start">
+                <!-- <mat-label>Enter some input</mat-label> -->
+                <label class="w-100">
+                    <input (change)="onImageInputChange($event)" [disabled]="!isEditable" type="file"
+                        accept=".png, .jpg, .jpeg .webp" class="d-none" multiple />
+
+                    <div class="drop-container p-4 " (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)"
+                        (drop)="onDrop($event)">
+                        <img src="assets/images/cloud-upload-outlined.png" alt="" srcset="" />
+                        <p class="paragraph-text primary_text mb-2">
+                            Drag & Drop Images Here
+                        </p>
+                        <p class="paragraph-text light_text_color mb-2">
+                            Maximum file size 1MB
+                        </p>
+                        <p class="paragraph-text light_text_color mb-2">
+                            Supports : PNG, JPG, jPEG & WEBP
+                        </p>
+                    </div>
+                </label>
+                <p class="text-danger" *ngIf="errors.image_names">
+                    {{ errors["image_names"] }}
+                </p>
+                <div class="row" *ngIf="imageUrl">
+                    @for (img of imageUrls; track $index) {
+                    <div class="col-1 p-0 image_preview">
+                        <img [src]="img.temp_url" alt="{{ img.filename }}" class="w-100" />
+                        <button class="btn" (click)="removeIcon($index)">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+                    }
+                </div>
+                <!-- @if (form.controls['property_ids'].touched &&
+                              form.controls['property_ids'].errors) {
+                              <p class="text-danger">Property is required</p>
+                              } @if (errors.property_ids) {
+                                  <p class="text-danger">{{ errors["property_ids"] }}</p>
+                              } -->
+            </div>
+            <!-- </div> -->
+
+
+            <div class="row mb-3">
+                <div class="col d-flex justify-content-end align-items-end">
+                    <button *ngIf="isEditable" type="button" class="cutom-btn me-3" (click)="updateData()">
+                        Update
+                    </button>
+
+                    <button type="button" class="cutom-btn" (click)="toggleEdit()">
+                        {{ isEditable ? 'Cancel' : 'Edit' }}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3   ">
+            <div class="col col-md me-md-3 border border-light main-border rounded shadow-sm p-3 ">
+                <div class="mb-2">
+                    <h6>Booking Settings</h6>
+                </div>
+                <div class="row mb-2">
+                    <div class="col">
+                        <input type="text" [disabled]="!isEditable2" class="form-control"
+                            placeholder="Time Slot Duration (in minutes)">
+                        <!-- formControlName="timeslotduration" -->
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col">
+                        <input type="text" [disabled]="!isEditable2" class="form-control"
+                            placeholder="Advance Booking Available Time (in Days)">
+                        <!-- formControlName="advance-booking-available-time" -->
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <input type="text" [disabled]="!isEditable2" class="form-control"
+                            placeholder="Fees for Time Slot">
+                        <!-- formControlName="fees-for-time-slot" -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-end align-items-end">
+                        <button *ngIf="isEditable2" type="button" class="cutom-btn me-3" (click)="updateData()">
+                            Update
+                        </button>
+
+                        <button type="button" class="cutom-btn" (click)="toggleEdit2()">
+                            {{ isEditable2 ? 'Cancel' : 'Edit' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-md border border-light rounded main-border shadow-sm p-3">
+                <div class="mb-2">
+                    <h6>Bank Details</h6>
+                </div>
+                <input type="text" [disabled]="!isEditable3" class="form-control mb-2" placeholder="Bank Account No">
+                <!-- formControlName="bankaccountno" -->
+                <input type="text" [disabled]="!isEditable3" class="form-control mb-2" placeholder="Account Holder Name">
+                <!-- formControlName="accountholdername" -->
+                <input type="text" [disabled]="!isEditable3" class="form-control mb-2" placeholder="Bank Name">
+                <!-- formControlName="bankname" -->
+                <input type="text" [disabled]="!isEditable3" class="form-control mb-4" placeholder="Branch Name">
+                <!-- formControlName="branchname" -->
+                <div class="row mb-3">
+                    <div class="col d-flex justify-content-end align-items-end">
+                        <button *ngIf="isEditable3" type="button" class="cutom-btn me-3" (click)="updateData()">
+                            Update
+                        </button>
+
+                        <button type="button" class="cutom-btn" (click)="toggleEdit3()">
+                            {{ isEditable3 ? 'Cancel' : 'Edit' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row border border-light rounded main-border shadow-sm p-3">
+            <div class="col-lg-6 me-2 col-md-12">
+
+                <div class="mb-2">
+                    <h6>Nets Manage</h6>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" placeholder="Name">
+                        <!-- formControlName="name" -->
+                    </div>
+                    <div class="col-md-5">
+                        <select class="form-select">
+                            <!-- formControlName="sports" -->
+                            <option value="">Select Sport</option>
+                            <option *ngFor="let sport of availableSports" [value]="sport">{{sport}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-custom w-100" (click)="addItem()">Add</button>
+                    </div>
+                </div>
+
+                <div class="row net-header">
+                    <div class="col-md-5">
+                        <div>Name</div>
+                    </div>
+                    <div class="col-md-5">
+                        <div>Sports</div>
+                    </div>
+                </div>
+
+                <div *ngFor="let net of netsList; let i = index" class="row p-2 align-items-center border-bottom">
+                    <div class="col-md-6">{{ net.name }}</div>
+                    <div class="col-md-6">
+                        <span *ngFor="let sport of net.sports" class="badge bg-light text-dark me-2">{{ sport }}</span>
+                        <button class="btn btn-link text-primary" (click)="editItem(i)"><i
+                                class="bi bi-pencil"></i></button>
+                        <button class="btn btn-link text-danger" (click)="deleteItem(i)"><i
+                                class="bi bi-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,304 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+@import 'variable.scss';
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$coyle-primary: mat.define-palette(mat.$indigo-palette);
+$coyle-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$coyle-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$coyle-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $coyle-primary,
+      accent: $coyle-accent,
+      warn: $coyle-warn
+    )
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($coyle-theme);
+
+
+
+$light_text-color: #a0a0a0;
+$default_text-color: #363636;
+$dark-color: #041230;
+$dark_light-color: #4a4a4a;
+
+body {
+  background: #efefef;
+  // background: #efefef;
+}
+mat-drawer-content {
+  background: #efefef;
+}
+a {
+  text-decoration: none;
+}
+
+.def_text_color {
+  color: $default_text-color;
+}
+.light_text_color {
+  color: $light_text-color;
+}
+.dark_light-color {
+  color: $dark_light-color;
+}
+//text class
+.sub-heading {
+  font-family: barlow_medium;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.25px;
+}
+.px15_text {
+  font-family: barlow_medium;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.paragraph-text {
+  font-family: barlow_regular;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.select {
+  border: none;
+  background: transparent;
+}
+.input {
+  border-radius: 10px;
+  border: 1px solid #b8b8b8;
+  width: 100%;
+  background: #fff;
+  padding: 2%;
+}
+.error {
+  color: $system_red;
+}
+.button_submit {
+  border-radius: 30px;
+  background-color: $primary !important;
+  color: #fff !important;
+  padding: 3%;
+  text-transform: uppercase;
+  font-family: barlow_regular;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+mat-drawer-container {
+  height: 92dvh;
+}
+.clickable {
+  cursor: pointer;
+}
+select:focus,
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.parent_active {
+  border-radius: 10px !important;
+  background: #041230 !important;
+  color: white !important;
+  height: fit-content;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  // text-transform: uppercase;
+}
+.line_button {
+  border-radius: 10px;
+  border: 1px solid #838383 !important;
+  color: #838383 !important;
+  height: fit-content;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  text-transform: uppercase;
+}
+.card {
+  border-radius: 10px;
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.25);
+}
+.mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+.action_button {
+  width: 28px;
+  height: 28px;
+  padding: 0%;
+  display: flex;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  mat-icon {
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+  }
+}
+.delete_btn {
+  background: #ffe2e0;
+  color: $system_red;
+}
+.delete_btn:hover {
+  background: #eeb6b4;
+  color: $system_red;
+}
+.edit_btn {
+  background: #e9f0ff;
+  color: $primary;
+}
+.edit_btn:hover {
+  background: #b3c5eb;
+  color: $primary;
+}
+.expan_btn {
+  background: #fff2e3;
+  color: $system_yellow;
+}
+.expan_btn:hover {
+  background: #e6cfb5;
+  color: $system_yellow;
+}
+.inner_div {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 4 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  h4,
+  h3,
+  img {
+    display: none;
+  }
+}
+.html_content .img_div {
+  min-width: 30vh;
+  max-width: 50vh;
+  float: left;
+  margin-right: 2%;
+  margin-bottom: 2%;
+}
+editor {
+  min-height: 30vh;
+  .tox {
+    min-height: 30vh !important;
+  }
+}
+.text-danger {
+
+  text-transform: lowercase
+}
+.text-danger::first-letter {
+  text-transform: uppercase !important
+}
+.head {
+  background-color: #dddddd;
+  height: 5vh;
+  justify-content: space-between;
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.column{
+  div {
+    overflow: hidden;
+  }
+
+  justify-content: space-between;
+  align-content: center;
+  border-bottom: 1px solid #CCC;
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
+  display: flex;
+  flex-wrap: wrap;
+
+  p{
+    margin-bottom: 0%;
+  }
+}
+
+
+
+.drop-container{
+  border-radius: 10px;
+border: 1px dashed #B8B8B8;
+background: #FFF;
+text-align: center;
+}
+.image_preview{
+  background-color: lightgray;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1 !important;
+
+  img{
+    aspect-ratio: 1 !important;
+    border-radius: 5px;
+  }
+  border-radius: 5px;
+  margin: 1%;
+  button{
+    position: absolute;
+    right: 2%;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1;
+    padding: 0%;
+    top: 2%;
+    display: flex;
+    mat-icon{
+      margin: auto;
+    }
+      }
+}
+.mat-drawer.mat-drawer-side{
+  background-color: #E3E8F6 !important;
+}
+.mat-tree{
+background-color: transparent !important;
+}

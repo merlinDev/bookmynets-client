@@ -1,0 +1,53 @@
+.table-header {
+    background-color: #59B1F0;
+    border-color: #59B1F0;
+    color: white;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.table-row {
+    border-bottom: 1px solid #ddd;
+}
+
+.search-bar input {
+    margin-bottom: 1rem;
+}
+
+.search-bar .form-control {
+    margin-right: 1rem;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #59B1F0;
+    border-color: #59B1F0;
+}
+
+.pagination .page-link {
+    border-radius: 15%;
+    padding: 8px 16px;
+    margin: 0 5px;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #6c757d;
+}
+
+.table-row:hover {
+    background-color: #e9ecef;
+}
+
+.table-row .col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-border{
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.25);
+
+}
+

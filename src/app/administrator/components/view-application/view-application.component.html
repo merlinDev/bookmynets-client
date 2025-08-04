@@ -1,0 +1,53 @@
+<div style="font-family: 'Poppins', sans-serif;" class="container">
+    <div class="row mb-3">
+        <h3 class="fw-bold">APPLICATION</h3>
+    </div>
+    <div class="main-border">
+        <div class="row ">
+            <div class="col-md-6 left-section">
+                <h5 class="mb-3">Complex Name</h5>
+                <p><strong>Mobile No :</strong> 0766010861</p>
+                <p><strong>Email :</strong> unisportgmail.com</p>
+                <p><strong>Address :</strong> 12/2, adhedhdewlk fdfwf.</p>
+                <p><strong>Image Of Business Registration</strong></p>
+                <div class="image-placeholder"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="grid-placeholder">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="btn-container">
+                <button type="button" class="reject-btn">Reject</button>
+                <button type="button" class="accept-btn" (click)="openModal()">Accept</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" [ngClass]="{'show': isModalOpen}"
+    [ngStyle]="{'display': isModalOpen ? 'block' : 'none'}">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Do you sure you want to Approve this partner?</p>
+            </div>
+            <div class="justify-content-center modal-footer">
+                <button type="button" class="reject-btn" (click)="reject()">NO</button>
+                <button type="button" class="accept-btn" (click)="accept()">YES</button>
+            </div>
+        </div>
+    </div>
+</div>

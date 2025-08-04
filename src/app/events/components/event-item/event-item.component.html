@@ -1,0 +1,62 @@
+<div class="card mt-3  row" style="flex-direction: row;overflow: hidden;">
+  @if(!expanded){
+  <div *ngIf="events?.images[0]" class="col-2 image"
+    [ngStyle]="{'background-image': 'url('+events?.images[0].image_path+')'}">
+  </div>
+  <div [ngClass]="(events?.images[0])?'col-10 p-3':'col-12 p-3'">
+    <div class="row" style="justify-content: space-between;">
+      <div class="col-7">
+        <div class="d-flex">
+          <p class="paragraph-text dark_light-color my-auto"> {{events.date | date : 'mediumDate'}}</p>
+        
+          <p *ngIf="events.is_published" class="paragraph-text mx-2 my-auto status live p-1 px-2">Live</p>
+          <p *ngIf="!events.is_published" class="paragraph-text mx-2 my-auto status draft p-1 px-2">Draft</p>
+        </div>
+        <p class="sub-heading dark_light-color mt-1"> {{events.title}}</p>
+      </div>
+      <div class="col-5 d-flex flex-row-reverse">
+        <button class="btn action_button delete_btn p-1" (click)="AskToDelete()"><img src="assets/images/trash-outline.svg"
+            class="m-auto w-100" alt="trash" srcset=""></button>
+        <button class="btn action_button edit_btn p-1" (click)="to_recipe()"><img
+            src="assets/images/create-outline.svg" class="m-auto w-100" alt="trash" srcset=""></button>
+        <button class="btn action_button expan_btn" (click)="expanded=!expanded"><img
+            src="assets/images/expand.svg" class="m-auto w-100" alt="trash" srcset=""></button>
+        <button *ngIf="!events.is_published" (click)="publish()"  class="btn parent_active text-uppercase paragraph-text"> Publish</button>
+        <button *ngIf="events.is_published" (click)="unpublish()" class="btn line_button text-uppercase paragraph-text"> Unpublish</button>
+      </div>
+    </div>
+    <p class="paragraph-text dark_light-color inner_div" [innerHTML]=" events.description">
+    </p>
+  </div>
+  }
+  @if(expanded){
+  <div class="container">
+    <div class="row mt-5">
+      <div class="html_content innerHTML_content">
+        <div class="img_div"> <img src="{{events.images[0].image_path}}" class="w-100" alt="Longtail boat in Thailand">
+        </div>
+        <div class="row " style="justify-content: space-between;">
+          <div class="col-7">
+            <div class="d-flex">
+              <p class="paragraph-text dark_light-color my-auto"> {{events.date | date : 'mediumDate'}}</p>
+              <p class="paragraph-text mx-2 my-auto status live p-1 px-2">Live</p>
+            </div>
+            <h2 class="text-start bold title">{{events.title}}</h2>
+          </div>
+          <div id="button_content" class="col-5 d-flex flex-row-reverse">
+            <div class="btn action_button delete_btn p-1"><img src="assets/images/trash-outline.svg"
+                class="m-auto w-100" alt="trash" srcset=""></div>
+            <div class="btn action_button edit_btn p-1" (click)="to_recipe()"><img
+                src="assets/images/create-outline.svg" class="m-auto w-100" alt="trash" srcset=""></div>
+            <div class="btn action_button expan_btn p-1" (click)="expanded=!expanded"><img
+                src="assets/images/collapse.svg" class="m-auto w-100" alt="trash" srcset=""></div>
+            <div *ngIf="!events.is_published" (click)="publish()" class="btn parent_active text-uppercase paragraph-text"> Publish</div>
+            <button *ngIf="events.is_published" (click)="unpublish()" class="btn line_button text-uppercase paragraph-text"> Unpublish</button>
+          </div>
+        </div>
+        <div [innerHTML]="this.events.description"></div>
+      </div>
+    </div>
+  </div>
+  }
+</div>

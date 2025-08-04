@@ -1,0 +1,65 @@
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+/*
+ * This padding sets alignment of the nested nodes.
+ */
+.example-tree .mat-nested-tree-node div[role=group] {
+  padding-left: 40px;
+}
+
+/*
+ * Padding for leaf nodes.
+ * Leaf nodes need to have padding so as to align with other non-leaf nodes
+ * under the same parent.
+ */
+.example-tree div[role=group] > .mat-tree-node {
+  padding-left: 40px;
+}
+
+.parent {
+  color: #757983;
+  transition: 0.2s;
+  padding: 2%;
+}
+
+.child {
+  color: #757983;
+  padding: 0 !important;
+  position: relative;
+}
+
+.child::before {
+  content: "";
+  background-image: url(../../../../assets/images/arrow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 15px;
+  height: 60px;
+  position: absolute;
+  top: -72%;
+  left: -9%;
+  z-index: 0;
+}
+
+.parent_active {
+  border-radius: 10px;
+  background: #041230;
+  color: white;
+  padding: 2%;
+  position: relative;
+  z-index: 1;
+}
+
+.child_active {
+  border-radius: 10px;
+  background: #daefff;
+}/*# sourceMappingURL=nav-parent.component.css.map */

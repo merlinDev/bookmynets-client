@@ -1,0 +1,89 @@
+<div class="container payments-container">
+    <div class="row">
+        <h4 class="mb-0">PAYMENTS</h4>
+    </div>
+    <div class="mt-4 border border-light rounded shadow-sm p-4 payment-box">
+        <div class="row mb-4">
+            <div class="col text-end">
+                <div class="fw-bold fs-5 available-balance">Available Balance: 10000 LKR</div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-2 mb-2">
+                <input type="text" class="form-control search-date" placeholder="Date">
+            </div>
+        </div>
+        <div class="row mb-2 align-items-center justify-content-end">
+            <div class="col-auto">
+                <div class="d-flex">
+                    <select style="background-color: #59B1F0;" name="perpge" formControlName="perpge" class="form-select select-per-page">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                    <span class="per-page-text">Per Page</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row fw-bold py-2 border header-row">
+            <div class="col">Payment ID</div>
+            <div class="col">Date</div>
+            <div class="col">Payment</div>
+            <div class="col">Payment Slip</div>
+            <div class="col">Payment Status</div>
+        </div>
+
+        <div class="row py-2 border-bottom payment-row">
+            <div class="col">#43424343434</div>
+            <div class="col">09/09/2024</div>
+            <div class="col">10000 LKR</div>
+            <div class="col"><a href="#" class="view-slip">View Slip</a></div>
+            <div class="col"><span class="text-warning fw-bold payment-status pending">Pending</span></div>
+        </div>
+
+        <div class="row py-2 border-bottom payment-row">
+            <div class="col">#43424343434</div>
+            <div class="col">09/09/2024</div>
+            <div class="col">10000 LKR</div>
+            <div class="col"><a href="#" class="view-slip">View Slip</a></div>
+            <div class="col"><span class="text-success fw-bold payment-status success">Success</span></div>
+        </div>
+
+        <div class="row py-2 border-bottom payment-row">
+            <div class="col">#43424343434</div>
+            <div class="col">09/08/2024</div>
+            <div class="col">10000 LKR</div>
+            <div class="col"><a href="#" class="view-slip">View Slip</a></div>
+            <div class="col"><span class="text-success fw-bold payment-status success">Success</span></div>
+        </div>
+
+        <div class="row py-2 border-bottom payment-row">
+            <div class="col">#43424343434</div>
+            <div class="col">09/08/2024</div>
+            <div class="col">10000 LKR</div>
+            <div class="col"><a href="#" class="view-slip">View Slip</a></div>
+            <div class="col"><span class="text-success fw-bold payment-status success">Success</span></div>
+        </div>
+
+        <div class="row py-2 border-bottom payment-row">
+            <div class="col">#43424343434</div>
+            <div class="col">09/08/2024</div>
+            <div class="col">10000 LKR</div>
+            <div class="col"><a href="#" class="view-slip">View Slip</a></div>
+            <div class="col"><span class="text-success fw-bold payment-status success">Success</span></div>
+        </div>
+
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">»</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

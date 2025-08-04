@@ -1,0 +1,223 @@
+<div class="section" style="font-family: 'Poppins', sans-serif;">
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col ">
+                    <h1 class="fw-bold fs-4">Welcome Uni Sport</h1>
+                    <p>To complete your account setup, please fill out the form below.</p>
+                </div>
+            </div>
+            <!-- [formGroup]="_register_form.form" (ngSubmit)="registerFormSubmit()" -->
+            <div class="row border border-2 border-light rounded-3 shadow-lg p-4">
+                <form>
+                    <div class="row">
+                        <div class="col-12">
+                            <h6>Basic Settings</h6>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-lg me-3 col-md-12">
+                                <div class="row mb-2">
+                                    <div class="col col-lg col-md col-12">
+                                        <input type="text" class="form-control" placeholder="Complex Name *"
+                                            formControlName="complexname">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg col-md-6 col-12 mb-2">
+                                        <input type="text" class="form-control" placeholder="Mobile No"
+                                            formControlName="mobileno">
+                                    </div>
+                                    <div class="col-lg col-md-6 col-12 mb-2">
+                                        <input type="text" class="form-control" placeholder="Email"
+                                            formControlName="email">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12 mb-2">
+                                        <input type="text" class="form-control" placeholder="Address"
+                                            formControlName="address">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-12 mb-2">
+                                        <select class="form-select" formControlName="area">
+                                            <option value="colombo">Colombo</option>
+                                            <option value="gampaha">Gampaha</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- <div class="row">
+                                    <div class="col">
+                                        <h6>Image Of Business Registration</h6>
+                                        <label for="bussines_img" class="">Upload</label>
+                                        <input (change)="onImageInputChange($event)" id="bussines_img" type="file" class="form-control d-none" name="img" accept="image/*">
+                                    </div>
+                                </div> -->
+                                <div class="row">
+                                    <div class="col">
+                                        <h6>Image Of Business Registration</h6>
+                                        <div class="col-1 p-0 image_preview">
+                                            <label for="bussines_img" class="text-secondary fs-32">Upload</label>
+                                            <input (change)="onImageInputChange($event)" id="bussines_img" type="file"
+                                                class="form-control d-none" name="img" accept="image/*">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg col-md-12 text-start">
+                                <!-- <mat-label>Enter some input</mat-label> -->
+                                <label class="w-100">
+                                    <input (change)="onImageInputChange($event)" type="file"
+                                        accept=".png, .jpg, .jpeg .webp" class="d-none" multiple />
+
+                                    <div class="drop-container p-4 " (dragover)="onDragOver($event)"
+                                        (dragleave)="onDragLeave($event)" (drop)="onDrop($event)">
+                                        <img src="assets/images/cloud-upload-outlined.png" alt="" srcset="" />
+                                        <p class="paragraph-text primary_text mb-2">
+                                            Drag & Drop Images Here
+                                        </p>
+                                        <p class="paragraph-text light_text_color mb-2">
+                                            Maximum file size 1MB
+                                        </p>
+                                        <p class="paragraph-text light_text_color mb-2">
+                                            Supports : PNG, JPG, jPEG & WEBP
+                                        </p>
+                                    </div>
+                                </label>
+                                <p class="text-danger" *ngIf="errors.image_names">
+                                    {{ errors["image_names"] }}
+                                </p>
+                                <div class="row" *ngIf="imageUrl">
+                                    @for (img of imageUrls; track $index) {
+                                    <div class="col-1 p-0 image_preview">
+                                        <img [src]="img.temp_url" alt="{{ img.filename }}" class="w-100" />
+                                        <button class="btn" (click)="removeIcon($index)">
+                                            <mat-icon>close</mat-icon>
+                                        </button>
+                                    </div>
+                                    }
+                                </div>
+                                <!-- @if (form.controls['property_ids'].touched &&
+                                          form.controls['property_ids'].errors) {
+                                          <p class="text-danger">Property is required</p>
+                                          } @if (errors.property_ids) {
+                                              <p class="text-danger">{{ errors["property_ids"] }}</p>
+                                          } -->
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-lg-7 me-2 col-md-12">
+                                <!-- <h6>Nets Manage</h6>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-12 mb-2">
+                                        <input type="text" class="form-control" placeholder="Name"
+                                            formControlName="name">
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-12 mb-2">
+                                        <select class="form-select" formControlName="sports">
+                                            <option value="cricket">Cricket</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-12 mb-2">
+                                        <button type="button" class="btn"
+                                            style=" border-radius: 0.6rem; color: #e7ebf1; background-color: #09439A;">Add</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <table class="table"></table>
+                                </div> -->
+
+                                <h6>Nets Manage</h6>
+                                <div class="row mb-2">
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" placeholder="Name"
+                                            formControlName="name">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-select" formControlName="sports">
+                                            <option value="">Select Sport</option>
+                                            <option *ngFor="let sport of availableSports" [value]="sport">{{sport}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-custom w-100" (click)="addItem()">Add</button>
+                                    </div>
+                                </div>
+
+                                <div class="row net-header">
+                                    <div class="col-md-5">
+                                        <div>Name</div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div>Sports</div>
+                                    </div>
+                                </div>
+
+                                <div *ngFor="let net of netsList; let i = index"
+                                    class="row p-2 align-items-center border-bottom">
+                                    <div class="col-md-6">{{ net.name }}</div>
+                                    <div class="col-md-6">
+                                        <span *ngFor="let sport of net.sports" class="badge bg-light text-dark me-2">{{ sport }}</span>
+                                        <button class="btn btn-link text-primary" (click)="editItem(i)"><i
+                                                class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-link text-danger" (click)="deleteItem(i)"><i
+                                                class="bi bi-trash"></i></button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg col-md-12">
+                                <h6>Bank Details</h6>
+                                <div class="row mb-2">
+                                    <input type="text" class="form-control" placeholder="Bank Account No"
+                                        formControlName="bankaccountno">
+                                </div>
+                                <div class="row mb-2">
+                                    <input type="text" class="form-control" placeholder="Account Holder Name"
+                                        formControlName="accountholdername">
+                                </div>
+                                <div class="row mb-2">
+                                    <input type="text" class="form-control" placeholder="Bank Name"
+                                        formControlName="bankname">
+                                </div>
+                                <div class="row mb-4">
+                                    <input type="text" class="form-control" placeholder="Branch Name"
+                                        formControlName="branchname">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <h6>Booking Settings</h6>
+                            <div class="row mb-2">
+                                <div class="col-lg-6 col-md-6 col-12 mb-2">
+                                    <input type="text" class="form-control"
+                                        placeholder="Time Slot Duration (in minutes)"
+                                        formControlName="timeslotduration">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12 mb-2">
+                                    <input type="text" class="form-control"
+                                        placeholder="Advance Booking Available Time (in Days)"
+                                        formControlName="advance-booking-available-time">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <input type="text" class="form-control" placeholder="Fees for Time Slot"
+                                        formControlName="fees-for-time-slot">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-12 d-flex justify-content-center">
+                                <button type="submit" class="btn"
+                                    style="width: 100%; max-width: 200px; border-radius: 0.6rem; color: #e7ebf1; background-color: #09439A;">Continue</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

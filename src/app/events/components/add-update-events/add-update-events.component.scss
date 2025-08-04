@@ -1,0 +1,46 @@
+.content{
+  border-radius: 20px;
+background: #FFF;
+
+}
+
+.drop-container{
+  border-radius: 10px;
+border: 1px dashed #B8B8B8;
+background: #FFF;
+text-align: center;
+}
+.image_preview{
+  background-color: lightgray;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1 !important;
+
+  img{
+    aspect-ratio: 1 !important;
+    border-radius: 5px;
+  }
+  border-radius: 5px;
+  margin: 1%;
+  button{
+    position: absolute;
+    right: 2%;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1;
+    padding: 0%;
+    top: 2%;
+    display: flex;
+    mat-icon{
+      margin: auto;
+    }
+      }
+}
+
+.close_btn{
+  width: fit-content;
+  background-color: gray !important;
+}

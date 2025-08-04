@@ -1,0 +1,77 @@
+.payments-container {
+    font-family: 'Arial', sans-serif;
+}
+
+.payment-box {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.available-balance {
+    font-weight: bold;
+    color: #333;
+}
+
+.search-date {
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.select-per-page {
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.header-row {
+    background-color: #59B1F0;
+    font-weight: bold;
+    color: #555;
+    color: white;
+    padding: 8px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.payment-row {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.payment-row:hover {
+    background-color: #e9ecef;
+}
+
+.view-slip {
+    color: #59B1F0;
+    text-decoration: none;
+}
+
+.view-slip:hover {
+    text-decoration: underline;
+}
+
+.payment-status.pending {
+    color: #ff9800;
+}
+
+.payment-status.success {
+    color: #4caf50;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #59B1F0;
+    border-color: #59B1F0;
+}
+
+.pagination .page-link {
+    border-radius: 15%;
+    padding: 8px 16px;
+    margin: 0 5px;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #6c757d;
+}

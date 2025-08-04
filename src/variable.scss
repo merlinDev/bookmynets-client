@@ -1,0 +1,28 @@
+$primary: #060029;
+
+
+$system_blue: #007AFF;
+$system_green: #008000;
+$system_yellow: #FFD426;
+$system_red: #D70015;
+
+$dark_text:#000000;
+$mid_text:#5B5B5B;
+$light_text:#757983;
+
+@font-face {
+  font-family: barlow_thin;
+  src: url(assets/fonts/Barlow-Thin.ttf) format("truetype");
+}
+@font-face {
+  font-family: barlow_medium;
+  src: url(assets/fonts/Barlow-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: barlow_regular;
+  src: url(assets/fonts/Barlow-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: barlow_light;
+  src: url(assets/fonts/Barlow-Light.ttf) format("truetype");
+}
