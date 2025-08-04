@@ -1,52 +1,110 @@
-@font-face {
-  font-family: barlow_medium;
-  src: url(../../../../../assets/fonts/Barlow-Medium.ttf) format("truetype");
+@import '../../../../../styles/design-system';
+@import '../../../../../styles/components';
+
+.warning_bg {
+  background-color: color(warning-50);
+  border: 1px solid color(warning-200);
+  border-radius: border-radius(md);
+  padding: spacing(4);
+  margin: spacing(4) 0;
 }
 
-.warning_bg{
-  background-color: #FFF5D3;
-  border-radius: 10px
-  ;
+.yellow-color {
+  color: color(warning-600) !important;
 }
-.yellow-color{
-  color: #ffb600 !important;
-}
+
 .headline-7 {
-  font-size: 19px;
-  font-family: barlow_medium;
-  line-height: 19px;
-  font-style: normal;
-  letter-spacing: 1px;
-  font-weight: 500;
+  font-size: font-size(lg);
+  font-family: map-get($font-families, primary);
+  line-height: line-height(tight);
+  font-weight: font-weight(semibold);
+  color: color(text-primary);
+  text-align: center;
+  margin-bottom: spacing(4);
 }
-.caption {
-  font-size: 12px;
-  font-family: barlow_medium;
-  line-height: 18px;
-  font-style: normal;
-  letter-spacing: 0.4px;
-  font-weight: 400;
-}
-.gray-color {
-  color: #acacac !important;
-}
-.regular {
-  font-weight: 500 !important;
-}
-.btn-success_1{
-  background-color: #64ac43 !important;
-  border: #64ac43;
-  color: white;
-}
-.btn-success_2{
-  background-color: #B20000 !important;
-  border: #B20000;
-  color: white !important;
-}
-.btn-gray_1 {
-  
 
-  border: 1px solid #838383 !important;
-  color: #838383 !important;
+.caption {
+  font-size: font-size(sm);
+  font-family: map-get($font-families, primary);
+  line-height: line-height(normal);
+  font-weight: font-weight(normal);
+  color: color(text-secondary);
+  text-align: center;
+  margin-bottom: spacing(2);
+}
+
+.gray-color {
+  color: color(text-tertiary) !important;
+}
+
+.regular {
+  font-weight: font-weight(medium) !important;
+}
+
+.btn-success_1 {
+  @include btn-success;
+}
+
+.btn-success_2 {
+  @include btn-danger;
+}
+
+.btn-gray_1 {
+  @include btn-outline;
+}
+
+// Modal content styling
+.row {
+  padding: spacing(6);
   
+  .col-12 {
+    margin-bottom: spacing(4);
+  }
+  
+  .col-5 {
+    padding: 0 spacing(2);
+    
+    button {
+      width: 100%;
+      padding: spacing(3) spacing(4);
+      font-weight: font-weight(medium);
+      transition: all 0.2s ease-in-out;
+      
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: shadow(md);
+      }
+    }
+  }
+}
+
+// Icon styling in warning/error messages
+mat-icon {
+  margin-right: spacing(2);
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+// Responsive improvements
+@media (max-width: 576px) {
+  .row {
+    padding: spacing(4);
+    
+    .col-5 {
+      margin-bottom: spacing(3);
+      
+      button {
+        font-size: font-size(sm);
+      }
+    }
+  }
+  
+  .headline-7 {
+    font-size: font-size(base);
+  }
+  
+  .caption {
+    font-size: font-size(xs);
+  }
 }

@@ -1,0 +1,385 @@
+// Component Mixins and Utilities
+// ===============================
+
+@import 'design-system';
+
+// Button Mixins
+// -------------
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: spacing(2);
+  padding: spacing(3) spacing(6);
+  font-family: map-get($font-families, primary);
+  font-size: font-size(sm);
+  font-weight: font-weight(medium);
+  line-height: line-height(tight);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: border-radius(md);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  user-select: none;
+
+  &:focus {
+    outline: 2px solid color(primary-500);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+@mixin btn-primary {
+  @include btn-base;
+  background-color: color(primary-500);
+  color: color(text-inverse);
+  border-color: color(primary-500);
+
+  &:hover:not(:disabled) {
+    background-color: color(primary-600);
+    border-color: color(primary-600);
+    transform: translateY(-1px);
+    box-shadow: shadow(md);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: shadow(sm);
+  }
+}
+
+@mixin btn-secondary {
+  @include btn-base;
+  background-color: color(bg-primary);
+  color: color(primary-600);
+  border-color: color(primary-300);
+
+  &:hover:not(:disabled) {
+    background-color: color(primary-50);
+    border-color: color(primary-400);
+    transform: translateY(-1px);
+    box-shadow: shadow(md);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: shadow(sm);
+  }
+}
+
+@mixin btn-outline {
+  @include btn-base;
+  background-color: transparent;
+  color: color(primary-600);
+  border-color: color(primary-300);
+
+  &:hover:not(:disabled) {
+    background-color: color(primary-50);
+    border-color: color(primary-500);
+  }
+}
+
+@mixin btn-ghost {
+  @include btn-base;
+  background-color: transparent;
+  color: color(text-secondary);
+  border-color: transparent;
+
+  &:hover:not(:disabled) {
+    background-color: color(neutral-100);
+    color: color(text-primary);
+  }
+}
+
+@mixin btn-danger {
+  @include btn-base;
+  background-color: color(error-500);
+  color: color(text-inverse);
+  border-color: color(error-500);
+
+  &:hover:not(:disabled) {
+    background-color: color(error-600);
+    border-color: color(error-600);
+    transform: translateY(-1px);
+    box-shadow: shadow(md);
+  }
+}
+
+@mixin btn-success {
+  @include btn-base;
+  background-color: color(success-500);
+  color: color(text-inverse);
+  border-color: color(success-500);
+
+  &:hover:not(:disabled) {
+    background-color: color(success-600);
+    border-color: color(success-600);
+    transform: translateY(-1px);
+    box-shadow: shadow(md);
+  }
+}
+
+// Button Size Variants
+@mixin btn-sm {
+  padding: spacing(2) spacing(4);
+  font-size: font-size(xs);
+}
+
+@mixin btn-lg {
+  padding: spacing(4) spacing(8);
+  font-size: font-size(base);
+}
+
+// Input Field Mixins
+// ------------------
+@mixin input-base {
+  width: 100%;
+  padding: spacing(3) spacing(4);
+  font-family: map-get($font-families, primary);
+  font-size: font-size(sm);
+  line-height: line-height(normal);
+  color: color(text-primary);
+  background-color: color(bg-primary);
+  border: 1px solid color(neutral-300);
+  border-radius: border-radius(md);
+  transition: all 0.2s ease-in-out;
+
+  &::placeholder {
+    color: color(text-tertiary);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: color(primary-500);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  &:disabled {
+    background-color: color(neutral-100);
+    color: color(text-tertiary);
+    cursor: not-allowed;
+  }
+
+  &.error {
+    border-color: color(error-500);
+    
+    &:focus {
+      border-color: color(error-500);
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+  }
+}
+
+// Card Mixins
+// -----------
+@mixin card-base {
+  background-color: color(bg-primary);
+  border: 1px solid color(neutral-200);
+  border-radius: border-radius(lg);
+  box-shadow: shadow(sm);
+  overflow: hidden;
+}
+
+@mixin card-elevated {
+  @include card-base;
+  box-shadow: shadow(md);
+  
+  &:hover {
+    box-shadow: shadow(lg);
+    transform: translateY(-2px);
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+// Table Mixins
+// ------------
+@mixin table-base {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: color(bg-primary);
+  border-radius: border-radius(lg);
+  overflow: hidden;
+  box-shadow: shadow(sm);
+}
+
+@mixin table-header {
+  background-color: color(primary-500);
+  color: color(text-inverse);
+  font-weight: font-weight(semibold);
+  font-size: font-size(sm);
+  padding: spacing(4);
+  text-align: left;
+  border-bottom: 1px solid color(primary-600);
+}
+
+@mixin table-row {
+  border-bottom: 1px solid color(neutral-200);
+  transition: background-color 0.15s ease-in-out;
+
+  &:hover {
+    background-color: color(neutral-50);
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+@mixin table-cell {
+  padding: spacing(4);
+  font-size: font-size(sm);
+  color: color(text-primary);
+  vertical-align: middle;
+}
+
+// Status Badge Mixins
+// -------------------
+@mixin badge-base {
+  display: inline-flex;
+  align-items: center;
+  padding: spacing(1) spacing(3);
+  font-size: font-size(xs);
+  font-weight: font-weight(medium);
+  border-radius: border-radius(full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@mixin badge-success {
+  @include badge-base;
+  background-color: color(success-100);
+  color: color(success-700);
+}
+
+@mixin badge-warning {
+  @include badge-base;
+  background-color: color(warning-100);
+  color: color(warning-700);
+}
+
+@mixin badge-error {
+  @include badge-base;
+  background-color: color(error-100);
+  color: color(error-700);
+}
+
+@mixin badge-info {
+  @include badge-base;
+  background-color: color(primary-100);
+  color: color(primary-700);
+}
+
+// Form Group Mixins
+// -----------------
+@mixin form-group {
+  margin-bottom: spacing(6);
+
+  label {
+    display: block;
+    margin-bottom: spacing(2);
+    font-size: font-size(sm);
+    font-weight: font-weight(medium);
+    color: color(text-primary);
+  }
+
+  .error-message {
+    margin-top: spacing(2);
+    font-size: font-size(xs);
+    color: color(error-600);
+    display: flex;
+    align-items: center;
+    gap: spacing(1);
+  }
+
+  .help-text {
+    margin-top: spacing(2);
+    font-size: font-size(xs);
+    color: color(text-tertiary);
+  }
+}
+
+// Utility Classes
+// ---------------
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 spacing(4);
+
+  @include respond-to(md) {
+    padding: 0 spacing(6);
+  }
+
+  @include respond-to(lg) {
+    padding: 0 spacing(8);
+  }
+}
+
+.section-padding {
+  padding: spacing(12) 0;
+
+  @include respond-to(md) {
+    padding: spacing(16) 0;
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, color(primary-500), color(primary-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Animation Utilities
+// -------------------
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+// Loading States
+// --------------
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid color(neutral-200);
+  border-top: 2px solid color(primary-500);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}

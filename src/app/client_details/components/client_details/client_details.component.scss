@@ -1,47 +1,258 @@
-.badge {
-    padding: 5px 10px;
-    border-radius: 20px;
-}
+@import '../../../../styles/design-system';
+@import '../../../../styles/components';
+
+.section {
+  padding: spacing(6);
   
-button i {
-    font-size: 1.2rem;
-}
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
-.bg-primary {
-    background-color: #007bff;
-}
+  h1 {
+    font-size: font-size(3xl);
+    font-weight: font-weight(bold);
+    color: color(text-primary);
+    margin-bottom: spacing(2);
+  }
   
-.bg-light {
-    background-color: #f8f9fa;
+  p {
+    color: color(text-secondary);
+    margin-bottom: spacing(8);
+  }
 }
+
+.main-border {
+  @include card-elevated;
+  padding: spacing(8);
+  margin-bottom: spacing(6);
+}
+
+// Form styling
+form {
+  .row {
+    margin-bottom: spacing(6);
+    
+    h6 {
+      font-size: font-size(lg);
+      font-weight: font-weight(semibold);
+      color: color(text-primary);
+      margin-bottom: spacing(4);
+      padding-bottom: spacing(2);
+      border-bottom: 2px solid color(primary-200);
+    }
+  }
   
-.text-dark {
-    color: #343a40;
-}
+  .form-control,
+  .form-select {
+    @include input-base;
+    margin-bottom: spacing(3);
+  }
   
-.text-primary {
-    color: #007bff;
+  .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right spacing(3) center;
+    background-repeat: no-repeat;
+    background-size: 16px 12px;
+    padding-right: spacing(10);
+  }
 }
-  
-.text-danger {
-    color: #dc3545;
-}
-  
-.p-2 {
-    padding: 10px;
-}
-  
-.me-2 {
-    margin-right: 20px !important; 
-}
+
+// Net management section
 .net-header {
-    background-color: #59B1F0;
-    color: white;
-    padding: 8px;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+  @include table-header;
+  border-top-left-radius: border-radius(lg);
+  border-top-right-radius: border-radius(lg);
+  margin-bottom: 0;
 }
-.btn-custom{
-    background-color: #09439A;
-    color: white;
+
+.btn-custom {
+  @include btn-primary;
+  @include btn-sm;
+}
+
+// Badge styling for sports
+.badge {
+  @include badge-info;
+  margin-right: spacing(2);
+  margin-bottom: spacing(1);
+}
+
+// Action buttons in net list
+.btn-link {
+  padding: spacing(1);
+  margin: 0 spacing(1);
+  border-radius: border-radius(sm);
+  transition: all 0.2s ease-in-out;
+  
+  &.text-primary {
+    color: color(primary-600);
+    
+    &:hover {
+      background-color: color(primary-50);
+      color: color(primary-700);
+    }
+  }
+  
+  &.text-danger {
+    color: color(error-600);
+    
+    &:hover {
+      background-color: color(error-50);
+      color: color(error-700);
+    }
+  }
+  
+  i {
+    font-size: 1.1rem;
+  }
+}
+
+// Net list rows
+.border-bottom {
+  border-bottom: 1px solid color(neutral-200) !important;
+  padding: spacing(3) 0;
+  transition: background-color 0.2s ease-in-out;
+  
+  &:hover {
+    background-color: color(neutral-50);
+  }
+}
+
+// Submit button
+button[type="submit"] {
+  @include btn-primary;
+  @include btn-lg;
+  min-width: 200px;
+  margin-top: spacing(6);
+}
+
+// File upload area improvements
+.drop-container {
+  border: 2px dashed color(neutral-300);
+  border-radius: border-radius(lg);
+  background: color(bg-primary);
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  
+  &:hover {
+    border-color: color(primary-400);
+    background: color(primary-50);
+  }
+  
+  img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: spacing(4);
+    opacity: 0.6;
+  }
+  
+  p {
+    margin-bottom: spacing(2);
+    
+    &.primary_text {
+      color: color(primary-600);
+      font-weight: font-weight(medium);
+    }
+    
+    &.light_text_color {
+      color: color(text-tertiary);
+      font-size: font-size(xs);
+    }
+  }
+}
+
+// Image preview improvements
+.image_preview {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: border-radius(md);
+  overflow: hidden;
+  margin: spacing(2);
+  box-shadow: shadow(sm);
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: shadow(md);
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  button {
+    position: absolute;
+    top: spacing(2);
+    right: spacing(2);
+    width: 24px;
+    height: 24px;
+    border-radius: border-radius(full);
+    background: color(error-500);
+    color: color(text-inverse);
+    border: 2px solid color(bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+      background: color(error-600);
+      transform: scale(1.1);
+    }
+    
+    mat-icon {
+      font-size: 14px;
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+// Responsive improvements
+@include respond-to(md) {
+  .section {
+    padding: spacing(8);
+  }
+  
+  .main-border {
+    padding: spacing(10);
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: spacing(4);
+    
+    h1 {
+      font-size: font-size(2xl);
+    }
+  }
+  
+  .main-border {
+    padding: spacing(4);
+  }
+  
+  .net-header,
+  .border-bottom {
+    font-size: font-size(xs);
+    
+    .col-md-5,
+    .col-md-6 {
+      padding: spacing(2);
+    }
+  }
+  
+  .btn-custom {
+    width: 100%;
+    margin-top: spacing(2);
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+  }
 }

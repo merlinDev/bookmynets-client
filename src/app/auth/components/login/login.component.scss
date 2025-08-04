@@ -1,4 +1,91 @@
+@import '../../../styles/design-system';
+@import '../../../styles/components';
+
 .full{
   width: 100vw;
-height: 100VH;
+  height: 100vh;
+  background: linear-gradient(135deg, color(primary-500), color(primary-700));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  @include card-elevated;
+  padding: spacing(10);
+  width: 100%;
+  max-width: 400px;
+  margin: spacing(4);
+
+  .logo-container {
+    text-align: center;
+    margin-bottom: spacing(8);
+
+    img {
+      width: 80px;
+      height: auto;
+    }
+  }
+
+  h1 {
+    font-size: font-size(2xl);
+    font-weight: font-weight(bold);
+    color: color(text-primary);
+    margin-bottom: spacing(2);
+    text-align: center;
+  }
+
+  p {
+    color: color(text-secondary);
+    text-align: center;
+    margin-bottom: spacing(8);
+  }
+
+  .form-group {
+    @include form-group;
+
+    input {
+      @include input-base;
+    }
+  }
+
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: spacing(6) 0;
+    font-size: font-size(sm);
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: spacing(2);
+      color: color(text-secondary);
+
+      input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        accent-color: color(primary-500);
+      }
+    }
+
+    a {
+      color: color(primary-600);
+      text-decoration: none;
+      font-weight: font-weight(medium);
+
+      &:hover {
+        color: color(primary-700);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .login-button {
+    @include btn-primary;
+    width: 100%;
+    padding: spacing(4);
+    font-size: font-size(base);
+    margin-top: spacing(4);
+  }
 }

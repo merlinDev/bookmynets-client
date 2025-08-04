@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
   _login_form: LoginFormModel;
   _array:Array<number> = [1,2,3,4,5]
   errors: any ;
+  isLoading: boolean = false;
+  
   constructor(private _auth_service: LoginService, private router: Router,private activated_route: ActivatedRoute) {
     if(activated_route.snapshot.data){
       console.log("dxsdds---",activated_route.snapshot.data['resoledData']);
@@ -35,11 +37,13 @@ export class LoginComponent implements OnInit {
    * @param auth login credential
    */
   tryToLogIn(auth: AuthModel): void {
+    this.isLoading = true;
     this._auth_service.tryToLogIn(
       (r: TokenModel) => {
-        alert('done')
+        this.isLoading = false;
         this.router.navigate(['/dashboard']);
       }, (e: HttpErrorResponse) => {
+        this.isLoading = false;
         if (e.status == 422) {
           e.error.detail.map((errorData: any) => {
           this.errors = errorData.msg
@@ -53,6 +57,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginFormSubmit() {    
+    this.errors = null;
     if (this._login_form.is_valid()) {
       this.tryToLogIn(this._login_form.get_value())
     }

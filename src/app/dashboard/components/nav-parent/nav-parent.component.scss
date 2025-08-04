@@ -1,3 +1,6 @@
+@import '../../../../styles/design-system';
+@import '../../../../styles/components';
+
 .example-tree-invisible {
   display: none;
 }
@@ -13,7 +16,7 @@
  * This padding sets alignment of the nested nodes.
  */
 .example-tree .mat-nested-tree-node div[role="group"] {
- // padding-left: 40px;
+  padding-left: spacing(8);
 }
 
 /*
@@ -22,48 +25,121 @@
  * under the same parent.
  */
 .example-tree div[role="group"] > .mat-tree-node {
-  //padding-left: 40px;
+  padding-left: spacing(8);
 }
-.pro_wrapper{
-  img{
-    border-radius: 50%;
-    aspect-ratio: 1/1 !important;
-    overflow: hidden;}
 
+.pro_wrapper {
+  text-align: center;
+  margin-bottom: spacing(6);
+  
+  img {
+    border-radius: 50%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+    border: 3px solid color(primary-200);
+    box-shadow: shadow(sm);
+  }
 }
+
+h3 {
+  font-size: font-size(base);
+  font-weight: font-weight(medium);
+  color: color(text-primary);
+  text-align: center;
+  margin-bottom: spacing(8);
+}
+
 .parent {
-  color: white;
-  transition: 0.2s;
-  padding: 2%;
-  background-color: #757983;
-  border-radius: 10px;
+  color: color(text-primary);
+  transition: all 0.2s ease-in-out;
+  padding: spacing(3);
+  background-color: color(neutral-100);
+  border-radius: border-radius(md);
+  margin-bottom: spacing(2);
+  cursor: pointer;
+  
+  &:hover {
+    background-color: color(neutral-200);
+    transform: translateX(2px);
+  }
 }
+
 .child {
-  color: #757983;
- // padding: 0 !important;
+  color: color(text-secondary);
   position: relative;
+  padding: spacing(2) spacing(3);
+  margin-left: spacing(4);
+  border-radius: border-radius(sm);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: color(primary-50);
+    color: color(primary-700);
+  }
 }
-.child::before {
- // content: "";
-  background-image: url(../../../../assets/images/arrow.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 15px;
-  height: 60px;
-  position: absolute;
-  top: -72%;
-  left: -9%;
-  z-index: 0;
-}
+
 .parent_active {
-  border-radius: 10px;
-  background: #041230;
-  color: #ffff;
-  padding: 2%;
-  position: relative;
-  z-index: 1;
+  background: color(primary-500) !important;
+  color: color(text-inverse) !important;
+  box-shadow: shadow(sm);
+  
+  mat-icon {
+    color: color(text-inverse);
+  }
 }
+
 .child_active {
-  border-radius: 10px;
-  background: #daefff;
+  background: color(primary-100) !important;
+  color: color(primary-700) !important;
+  font-weight: font-weight(medium);
+}
+
+// Navigation item styling
+.mat-tree-node,
+.mat-nested-tree-node {
+  min-height: auto;
+  
+  .d-flex {
+    align-items: center;
+    gap: spacing(3);
+    
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+      color: color(text-secondary);
+      transition: color 0.2s ease-in-out;
+    }
+    
+    p {
+      margin: 0;
+      font-size: font-size(sm);
+      font-weight: font-weight(normal);
+    }
+  }
+}
+
+// Logout special styling
+.mat-tree-node:last-child {
+  margin-top: spacing(4);
+  border-top: 1px solid color(neutral-200);
+  padding-top: spacing(4);
+  
+  .parent {
+    background-color: color(error-50);
+    color: color(error-700);
+    border: 1px solid color(error-200);
+    
+    &:hover {
+      background-color: color(error-100);
+      color: color(error-800);
+    }
+    
+    mat-icon {
+      color: color(error-600);
+    }
+  }
 }

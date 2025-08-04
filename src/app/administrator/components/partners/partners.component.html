@@ -1,28 +1,29 @@
-<div style="font-family: 'Poppins', sans-serif;" class="container mt-5">
+<div class="container">
     <h3>PARTNERS</h3>
 
-    <div class="row main-border search-bar mb-4">
+    <div class="search-bar">
+      <div class="row">
         <div class="col-md-3">
-            <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search partners...">
         </div>
         <div class="col-md-3">
-            <select class="form-select">
-                <option>Status</option>
-                <option value="Active">Active</option>
-                <option value="Deactivated">Deactivated</option>
-            </select>
+          <select class="form-select">
+            <option>All Status</option>
+            <option value="Active">Active</option>
+            <option value="Deactivated">Deactivated</option>
+          </select>
         </div>
         <div class="col-md-3">
-            <input type="date" class="form-control">
+          <input type="date" class="form-control" placeholder="Registration Date">
         </div>
+      </div>
     </div>
 
-    <div class="row main-border">
+    <div class="main-border">
         <div class="row mb-2 align-items-center justify-content-end">
             <div class="col-auto">
                 <div class="d-flex">
-                    <select style="background-color: #59B1F0;" name="perpge" formControlName="perpge"
-                        class="form-select select-per-page">
+                    <select name="perpge" formControlName="perpge" class="select-per-page">
                         <option value="10">10</option>
                         <option value="20">20</option>
                         <option value="50">50</option>
@@ -32,7 +33,7 @@
             </div>
         </div>
 
-        <div class="row mx-auto">
+        <div class="table-container">
             <div class="row table-row table-header p-1">
                 <div class="col">ID</div>
                 <div class="col">Complex Name</div>
@@ -43,7 +44,7 @@
                 <div class="col">Slip</div>
             </div>
 
-            <div class="row table-row table-row py-2">
+            <div class="row table-row">
                 <div class="col">#4342443</div>
                 <div class="col">Uni Sport</div>
                 <div class="col">Nugegoda</div>
@@ -52,7 +53,8 @@
                 <div class="col"><span class="active">Active</span></div>
                 <div class="col"><a href="#" class="ms-2">View</a></div>
             </div>
-            <div class="row table-row table-row py-2">
+            
+            <div class="row table-row">
                 <div class="col">#4342443</div>
                 <div class="col">Uni Sport</div>
                 <div class="col">Nugegoda</div>
@@ -62,7 +64,7 @@
                 <div class="col"><a href="#" class="ms-2">View</a></div>
             </div>
 
-            <div class="row table-row table-row py-2">
+            <div class="row table-row">
                 <div class="col">#4342443</div>
                 <div class="col">Uni Sport</div>
                 <div class="col">Nugegoda</div>
@@ -72,7 +74,7 @@
                 <div class="col"><a href="#" class="ms-2">View</a></div>
             </div>
 
-            <div class="row table-row table-row py-2">
+            <div class="row table-row">
                 <div class="col">#4342443</div>
                 <div class="col">Uni Sport</div>
                 <div class="col">Nugegoda</div>
@@ -93,6 +95,5 @@
                 </ul>
             </nav>
         </div>
-
     </div>
 </div>
